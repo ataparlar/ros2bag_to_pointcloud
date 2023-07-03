@@ -16,10 +16,10 @@
 #include <GeographicLib/LocalCartesian.hpp>
 #include <GeographicLib/Geocentric.hpp>
 #include <GeographicLib/UTMUPS.hpp>
-#include <pcl/point_types.h>
-#include <pcl/conversions.h>
-#include <pcl/io/pcd_io.h>
-#include <pcl_conversions/pcl_conversions.h>
+//#include <pcl/point_types.h>
+//#include <pcl/conversions.h>
+//#include <pcl/io/pcd_io.h>
+//#include <pcl_conversions/pcl_conversions.h>
 
   class RosbagToPointCloud : public rclcpp::Node
   {
@@ -71,6 +71,7 @@
       UTMOrigin utm_origin;
       GeographicLib::Geocentric earth;
 
-      pcl::PointCloud<pcl::PointXYZI> whole_pcl_cloud;
+
+//      pcl::PointCloud<pcl::PointXYZI> whole_pcl_cloud;
   };
 

@@ -12,7 +12,7 @@ find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(sensor_msgs REQUIRED)
 find_package(geometry_msgs REQUIRED)
-find_package(PCL REQUIRED)
+#find_package(PCL REQUIRED)
 find_package(pcl_ros REQUIRED)
 find_package(tf2 REQUIRED)
 find_package(tf2_ros REQUIRED)
@@ -21,24 +21,24 @@ find_package(GeographicLib REQUIRED)
 find_package(Eigen3 REQUIRED)
 
 
-link_directories(${PCL_LIBRARY_DIRS})
-add_definitions(${PCL_DEFINITIONS})
+#link_directories(${PCL_LIBRARY_DIRS})
+#add_definitions(${PCL_DEFINITIONS})
 
 include_directories(include
-        ${PCL_INCLUDE_DIRS}
-        ${pcl_ros_INCLUDE_DIRS}
+#        ${PCL_INCLUDE_DIRS}
+#        ${pcl_ros_INCLUDE_DIRS}
         ${GeographicLib_INCLUDE_DIRS})
 
 add_executable(rosbag_to_pointcloud_exe
         src/rosbag_to_pointcloud.cpp
         include/rosbag_to_pointcloud/rosbag_to_pointcloud.hpp)
-ament_target_dependencies(rosbag_to_pointcloud_exe rclcpp sensor_msgs PCL pcl_ros
+ament_target_dependencies(rosbag_to_pointcloud_exe rclcpp sensor_msgs # PCL pcl_ros
         tf2 tf2_ros message_filters GeographicLib geometry_msgs Eigen3)
 
 target_link_libraries(${PROJECT_NAME}_exe
         ${GeographicLib_LIBRARIES}
-        Eigen3::Eigen
-        ${PCL_LIBRARIES})
+#        ${PCL_LIBRARIES}
+        Eigen3::Eigen)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
